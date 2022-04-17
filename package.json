@@ -1,0 +1,16 @@
+{
+  "name": "markon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.28.0",
+    "fastify-mongodb": "^4.1.1",
+    "mongodb": "^4.5.0"
+  }
+}
