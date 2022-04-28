@@ -30,6 +30,7 @@ const createBlogSchema = {
     properties: {
       title: { type: "string" },
       body: { type: "string" },
+      html: { type: "string" },
     },
   },
   response: {
@@ -43,6 +44,7 @@ const updateBlogSchema = {
     properties: {
       title: { type: "string" },
       body: { type: "string" },
+      html: { type: "string" },
     },
   },
   params: {

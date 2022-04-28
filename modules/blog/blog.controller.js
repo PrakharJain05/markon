@@ -1,4 +1,5 @@
 const blogs = require("../../blogs");
+var MarkdownIt = require("markdown-it");
 
 const getBlogController = (req, reply) => {
   reply.send(blogs);
@@ -20,15 +21,19 @@ const getBlogByIdController = (req, reply) => {
 };
 const createBlogController = (req, reply) => {
   const { title, body } = req.body;
+  md = new MarkdownIt();
+  var result = md.render(body);
 
   const id = blogs.length + 1;
-  blogs.push({ id, title, body });
+  blogs.push({ id, title, body, result });
 
   reply.send("Blog added");
 };
 const updateBlogController = (req, reply) => {
   const { title, body } = req.body;
   const { id } = req.params;
+  md = new MarkdownIt();
+  var result = md.render(body);
 
   const blog = blogs.filter((blog) => {
     return blog.id === id;
@@ -40,6 +45,7 @@ const updateBlogController = (req, reply) => {
 
   blog.title = title;
   blog.body = body;
+  blog.html = result;
 
   return reply.send("Blog updated");
 };
