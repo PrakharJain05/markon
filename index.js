@@ -1,4 +1,5 @@
 const blogs = require("./blogs");
+require("dotenv").config();
 
 const fastify = require("fastify")({
   logger: true,
